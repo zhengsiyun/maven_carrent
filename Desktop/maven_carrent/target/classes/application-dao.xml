@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	<!-- 引入db.properties -->
+	<context:property-placeholder location="classpath:db.properties" system-properties-mode="FALLBACK"/>
+	<!-- 声明datasource -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		注入连接属性
+		<property name="driverClassName" value="${driverClassName}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+	</bean> -->
+	<!-- 声明druid数据源  -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init">
+		<!-- 注入连接属性 -->
+		<property name="driverClassName" value="${driverClassName}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+		<!-- 设置初始连接池的大小 -->
+		<property name="initialSize" value="5"></property>
+		<!-- 设置最大连接池 -->
+		<property name="maxActive" value="50"></property>
+		<!-- 设置等待时间 -->
+		<property name="maxWait" value="5000"></property>
+		<!-- 配置过滤器 -->
+		<property name="filters" value="stat"></property>
+		
+	</bean>
+	<!-- 声明sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 注入数据源 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 注入mapper.xml -->
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:mapper/*/*Mapper.xml</value>
+			</array>
+		</property>
+		<!-- 插件 -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor"></bean>
+			</array>
+		</property>
+		<!-- 注入别名 -->
+		<!-- <property name="typeAliasesPackage" value="com.zsy.domain"></property> -->
+	</bean>
+	
+	
+	<!-- 扫描mapper接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 注入mapper所在的包 -->
+		<property name="basePackage">
+			<value>
+			com.zsy.sys.mapper
+			com.zsy.bus.mapper
+			com.zsy.stat.mapper
+			</value>
+		</property>
+		
+		<!-- 注入sqlSessionFactory -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	</bean>
+	
+</beans>

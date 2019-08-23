@@ -1,0 +1,9 @@
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:23 +0800] "GET /zsy/ HTTP/1.1" 200 3605 http-bio-8080-exec-2 889
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:26 +0800] "POST /zsy/login/login.action HTTP/1.1" 200 10421 http-bio-8080-exec-3 360
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:26 +0800] "GET /zsy/desk/toDeskManager.action HTTP/1.1" 200 4982 http-bio-8080-exec-4 231
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:26 +0800] "GET /zsy/login/favicon.ico HTTP/1.1" 404 993 http-bio-8080-exec-5 2
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:26 +0800] "GET /zsy/menu/loadIndexLeftMenuJson.action HTTP/1.1" 200 2946 http-bio-8080-exec-1 230
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:26 +0800] "GET /zsy/news/loadAllNews.action?page=1&limit=10 HTTP/1.1" 200 542 http-bio-8080-exec-7 125
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:27 +0800] "GET /zsy/bus/toCustomerManager.action HTTP/1.1" 200 11482 http-bio-8080-exec-9 216
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:27 +0800] "GET /zsy/customer/loadAllCustomer.action?page=1&limit=10 HTTP/1.1" 200 1013 http-bio-8080-exec-10 34
+0:0:0:0:0:0:0:1 - - [01/Aug/2019:15:49:29 +0800] "GET /zsy/stat/exportCustomer.action?identity=&custname=&address=&phone=&career= HTTP/1.1" 201 5632 http-bio-8080-exec-10 540
