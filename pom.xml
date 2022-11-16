@@ -24,7 +24,7 @@
 		<slf4j.version>1.7.26</slf4j.version>
 		<poi.version>4.1.0</poi.version>
 		<quartz.version>2.3.0</quartz.version>
-		<jackson.version>2.9.9</jackson.version>
+		<jackson.version>2.12.7.1</jackson.version>
 		<hutool.version>4.6.1</hutool.version>
 		<zxing.version>3.4.0</zxing.version>
 	</properties>
